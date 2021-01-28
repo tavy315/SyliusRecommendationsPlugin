@@ -1,0 +1,12 @@
+{% form_theme form '@Tavy315SyliusRecommendationsPlugin/Form/theme.html.twig' %}
+
+<div class="ui two column stackable grid">
+    <div class="column">
+        <div class="ui segment">
+            {{ form_errors(form) }}
+            {{ form_row(form.customer) }}
+            {{ form_row(form.recommendationGroup) }}
+            {{ form_row(form.products) }}
+        </div>
+    </div>
+</div>

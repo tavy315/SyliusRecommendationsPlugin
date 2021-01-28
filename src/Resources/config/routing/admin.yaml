@@ -1,0 +1,105 @@
+tavy315_sylius_recommendations_admin_customer_recommendation_index:
+    resource: |
+        alias: tavy315_sylius_recommendations.customer_recommendation
+        grid: tavy315_sylius_recommendations_admin_customer_recommendation
+        permission: true
+        redirect: update
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        vars:
+            all:
+                templates:
+                    form: "@Tavy315SyliusRecommendationsPlugin/Admin/CustomerRecommendation/_form.html.twig"
+                    header_title: "@Tavy315SyliusRecommendationsPlugin/Admin/CustomerRecommendation/_headerTitle.html.twig"
+            index:
+                icon: 'user'
+    type: sylius.resource
+
+tavy315_sylius_recommendations_admin_recommendation_groups:
+    resource: |
+        alias: tavy315_sylius_recommendations.recommendation_group
+        grid: tavy315_sylius_recommendations_admin_recommendation_group
+        permission: true
+        redirect: update
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        vars:
+            all:
+                templates:
+                    form: "@Tavy315SyliusRecommendationsPlugin/Admin/RecommendationGroup/_form.html.twig"
+                    header_title: "@Tavy315SyliusRecommendationsPlugin/Admin/RecommendationGroup/_headerTitle.html.twig"
+            index:
+                icon: 'user'
+    type: sylius.resource
+
+tavy315_sylius_recommendations_admin_ajax_customer_by_phrase:
+    path: /ajax/customers/search
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: sylius.controller.customer:indexAction
+        _sylius:
+            permission: true
+            repository:
+                method: findByPart
+                arguments:
+                    phrase: $phrase
+                    locale: null
+
+tavy315_sylius_recommendations_admin_ajax_customer_by_email:
+    path: /ajax/customers/email
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: sylius.controller.customer:indexAction
+        _sylius:
+            permission: true
+            repository:
+                method: findBy
+                arguments: [email: $email]
+
+tavy315_sylius_recommendations_admin_ajax_recommendation_group_by_name_phrase:
+    path: /ajax/recommendation-groups/search
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: tavy315_sylius_recommendations.controller.recommendation_group:indexAction
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findByNamePart
+                arguments:
+                    phrase: $phrase
+                    locale: null
+
+tavy315_sylius_recommendations_admin_ajax_recommendation_group_by_code:
+    path: /ajax/recommendation-groups/code
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: tavy315_sylius_recommendations.controller.recommendation_group:indexAction
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findBy
+                arguments: [code: $code]
+
+tavy315_sylius_recommendations_admin_customer_customer_recommendation:
+    path: /customers/{id}/recommendations
+    methods: [GET]
+    defaults:
+        _controller: tavy315_sylius_recommendations.controller.customer_recommendation:indexAction
+        _sylius:
+            section: admin
+            permission: true
+            template: "@SyliusAdmin/Crud/index.html.twig"
+            grid: tavy315_sylius_recommendations_admin_customer_customer_recommendation
+            vars:
+                route:
+                    parameters:
+                        $customerId: $id
+                templates:
+                    breadcrumb: '@Tavy315SyliusRecommendationsPlugin/Admin/Customer/CustomerRecommendation/_breadcrumb.html.twig'
+                    header_title: '@Tavy315SyliusRecommendationsPlugin/Admin/Customer/CustomerRecommendation/_headerTitle.html.twig'

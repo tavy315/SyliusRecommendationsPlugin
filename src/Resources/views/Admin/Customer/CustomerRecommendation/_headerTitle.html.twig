@@ -1,0 +1,5 @@
+{{ render(url('sylius_admin_partial_customer_show', {
+    'id': app.request.attributes.get('id'),
+    'template': '@Tavy315SyliusRecommendationsPlugin/Admin/Customer/CustomerRecommendation/_header.html.twig',
+    'vars': configuration.vars
+})) }}

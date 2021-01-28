@@ -1,0 +1,36 @@
+tavy315_sylius_recommendations_admin_api_custome_recommendation:
+    resource: |
+        alias: tavy315_sylius_recommendations.customer_recommendation
+        criteria:
+            customer: $customer
+        form: Tavy315\SyliusRecommendationsPlugin\Form\Type\CustomerRecommendationType
+        grid: tavy315_sylius_recommendations_admin_customer_recommendation
+        identifier: recommendationGroup
+        only: [create, update]
+        path: 'customers/{customer}/recommendations'
+        section: admin_api
+        serialization_version: $version
+        vars:
+            route:
+                parameters:
+                    customer: $customer
+                    recommendationGroup: $recommendationGroup
+    type: sylius.resource_api
+
+tavy315_sylius_recommendations_admin_api_customer_recommendation_update:
+    path: /customers/{customer}/recommendations/{recommendationGroup}
+    methods: [ PATCH, PUT ]
+    defaults:
+        _controller: "tavy315_sylius_recommendations.controller.customer_recommendation:updateAction"
+        _sylius:
+            criteria:
+                customer: $customer
+                recommendationGroup: $recommendationGroup
+            factory:
+                method: createForCustomerAndRecommendation
+                arguments:
+                    - expr:service('sylius.repository.customer').findOneById($customer)
+                    - expr:service('tavy315_sylius_recommendations.repository.recommendation_group').findOneByCode($recommendationGroup)
+            repository:
+                method: findOneByCustomerAndRecommendationGroup
+                arguments: [ $customer, $recommendationGroup ]

@@ -1,0 +1,26 @@
+{
+    "name": "tavy315/sylius-recommendations-plugin",
+    "type": "sylius-plugin",
+    "description": "Recommendations plugin for Sylius.",
+    "license": "MIT",
+    "require": {
+        "php": "^7.3",
+        "pagerfanta/doctrine-orm-adapter": "^2.7",
+        "sylius/sylius": "^1.8"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-doctrine": "^0.12",
+        "phpstan/phpstan-strict-rules": "^0.12",
+        "phpstan/phpstan-webmozart-assert": "^0.12",
+        "sensiolabs/security-checker": "^6.0",
+        "sylius-labs/coding-standard": "^3.2",
+        "vimeo/psalm": "^4.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tavy315\\SyliusRecommendationsPlugin\\": "src/"
+        }
+    },
+    "prefer-stable": true
+}

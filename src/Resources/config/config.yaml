@@ -1,0 +1,43 @@
+imports:
+    - { resource: "@Tavy315SyliusRecommendationsPlugin/Resources/config/app/grids.yaml" }
+    - { resource: "@Tavy315SyliusRecommendationsPlugin/Resources/config/app/jms_serializer.yaml" }
+
+services:
+    tavy315_sylius_recommendations.context.customer_recommendation:
+        class: Tavy315\SyliusRecommendationsPlugin\Context\CustomerRecommendationContext
+        public: true
+        arguments:
+            - "@tavy315_sylius_recommendations.factory.customer_recommendation"
+            - "@tavy315_sylius_recommendations.repository.customer_recommendation"
+            - "@sylius.context.locale"
+            - "@tavy315_sylius_recommendations.repository.recommendation_group"
+            - "@security.token_storage"
+
+    tavy315_sylius_recommendations.controller.action.list_recommendation_groups:
+        class: Tavy315\SyliusRecommendationsPlugin\Controller\Action\ListRecommendationGroupsAction
+        arguments:
+            - "@tavy315_sylius_recommendations.context.customer_recommendation"
+            - "@twig"
+        tags:
+            - { name: controller.service_arguments }
+
+    tavy315_sylius_recommendations.controller.action.list_recommendation_products:
+        class: Tavy315\SyliusRecommendationsPlugin\Controller\Action\ListRecommendationProductsAction
+        arguments:
+            - "@tavy315_sylius_recommendations.context.customer_recommendation"
+            - "@tavy315_sylius_recommendations.repository.product"
+            - "@twig"
+            - "@tavy315_sylius_recommendations.request_data_handler.pagination"
+            - "@sylius.context.shopper"
+        tags:
+            - { name: controller.service_arguments }
+
+    tavy315_sylius_recommendations.custom_factory.customer_recommendation:
+        class: Tavy315\SyliusRecommendationsPlugin\Factory\CustomerRecommendationFactory
+        decorates: tavy315_sylius_recommendations.factory.customer_recommendation
+        public: false
+        arguments:
+            - "@tavy315_sylius_recommendations.custom_factory.customer_recommendation.inner"
+
+    tavy315_sylius_recommendations.request_data_handler.pagination:
+        class: Tavy315\SyliusRecommendationsPlugin\RequestDataHandler\PaginationDataHandler

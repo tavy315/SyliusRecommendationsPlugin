@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="tavy315_sylius_recommendations.repository.customer_recommendation"
+                 class="Tavy315\SyliusRecommendationsPlugin\Repository\CustomerRecommendationRepository" />
+
+        <service id="Tavy315\SyliusRecommendationsPlugin\Repository\CustomerRecommendationRepositoryInterface"
+                 alias="tavy315_sylius_recommendations.repository.customer_recommendation" />
+
+        <service id="tavy315_sylius_recommendations.repository.customer"
+                 class="Tavy315\SyliusRecommendationsPlugin\Repository\CustomerRepository"
+                 autowire="true" />
+
+        <service id="tavy315_sylius_recommendations.repository.product"
+                 class="Tavy315\SyliusRecommendationsPlugin\Repository\ProductRepository"
+                 autowire="true" />
+
+        <service id="tavy315_sylius_recommendations.repository.recommendation_group"
+                 class="Tavy315\SyliusRecommendationsPlugin\Repository\RecommendationGroupRepository" />
+
+        <service id="Tavy315\SyliusRecommendationsPlugin\Repository\RecommendationGroupRepositoryInterface"
+                 alias="tavy315_sylius_recommendations.repository.recommendation_group" />
+    </services>
+</container>

@@ -1,0 +1,17 @@
+tavy315_sylius_recommendations:
+    ui:
+        code: Code
+        customer_recommendation: Customer recommendation
+        customer_recommendations: Customer recommendations
+        edit_customer_recommendation: Edit customer recommendation
+        edit_recommendation_group: Edit recommendation group
+        name: Name
+        new_customer_recommendation: New customer recommendation
+        new_recommendation_group: New recommendation group
+        recommendation: Recommendation
+        recommendation_group: Recommendation group
+        recommendation_groups: Recommendation groups
+        select_customer: Select customer
+        select_recommendation_group: Select recommendation group
+        show_recommendations: Show recommendations
+        your_recommendation_is_empty: Your recommendation is empty

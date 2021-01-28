@@ -1,0 +1,9 @@
+tavy315_sylius_recommendations_shop_recommendation_list_groups:
+    path: /
+    defaults:
+        _controller: tavy315_sylius_recommendations.controller.action.list_recommendation_groups
+
+tavy315_sylius_recommendations_shop_recommendation_list_products:
+    path: /{group}
+    defaults:
+        _controller: tavy315_sylius_recommendations.controller.action.list_recommendation_products

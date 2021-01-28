@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <mapped-superclass name="Tavy315\SyliusRecommendationsPlugin\Entity\CustomerRecommendation" table="tavy315_sylius_customer_recommendations">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <unique-constraints>
+            <unique-constraint columns="customer_id,recommendation_group_id" name="customer_recommendation_group_idx" />
+        </unique-constraints>
+        <many-to-one field="customer" target-entity="Sylius\Component\Customer\Model\CustomerInterface">
+            <join-column name="customer_id" referenced-column-name="id" nullable="false" />
+            <cascade>
+                <cascade-persist />
+            </cascade>
+        </many-to-one>
+        <many-to-one field="recommendationGroup" target-entity="Tavy315\SyliusRecommendationsPlugin\Entity\RecommendationGroupInterface">
+            <join-column name="recommendation_group_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
+        </many-to-one>
+        <field name="products" type="array" />
+    </mapped-superclass>
+</doctrine-mapping>

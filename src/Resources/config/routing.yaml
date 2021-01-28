@@ -1,0 +1,11 @@
+tavy315_sylius_recommendations_admin:
+    prefix: /admin
+    resource: routing/admin.yaml
+
+tavy315_sylius_recommendations_admin_api:
+    prefix: /api/v{version}
+    resource: routing/admin_api.yaml
+
+tavy315_sylius_recommendations_shop:
+    prefix: /recommendation
+    resource: routing/shop.yaml
