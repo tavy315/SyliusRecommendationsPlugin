@@ -10,15 +10,6 @@ use Tavy315\SyliusRecommendationsPlugin\Entity\RecommendationGroupInterface;
 
 class RecommendationGroupRepository extends EntityRepository implements RecommendationGroupRepositoryInterface
 {
-    public function findByNamePart(string $phrase, ?string $locale = null): array
-    {
-        return $this->createTranslationBasedQueryBuilder($locale)
-                    ->andWhere('translation.name LIKE :name')
-                    ->setParameter('name', '%' . $phrase . '%')
-                    ->getQuery()
-                    ->getResult();
-    }
-
     public function findOneBySlug(string $slug, string $locale): ?RecommendationGroupInterface
     {
         return $this->createTranslationBasedQueryBuilder($locale)

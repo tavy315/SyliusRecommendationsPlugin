@@ -1,12 +1,5 @@
 {% extends '@SyliusUi/Form/theme.html.twig' %}
 
-{% block tavy315_sylius_recommendations_recommendation_group_autocomplete_choice_row %}
-    {{ form_row(form, {
-        'remote_url': path('tavy315_sylius_recommendations_admin_ajax_recommendation_group_by_name_phrase'),
-        'load_edit_url': path('tavy315_sylius_recommendations_admin_ajax_recommendation_group_by_code')
-    }) }}
-{% endblock %}
-
 {% block tavy315_sylius_recommendations_customer_autocomplete_choice_row %}
     {{ form_row(form, {
         'remote_url': path('tavy315_sylius_recommendations_admin_ajax_customer_by_phrase'),
