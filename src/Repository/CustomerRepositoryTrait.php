@@ -8,16 +8,6 @@ use Doctrine\ORM\EntityManager;
 
 trait CustomerRepositoryTrait
 {
-    /**
-     * @return EntityManager
-     */
-    abstract protected function getEntityManager();
-
-    /**
-     * @return string
-     */
-    abstract protected function getEntityName();
-
     public function findByPart(string $phrase): array
     {
         return $this->createQueryBuilder('o')

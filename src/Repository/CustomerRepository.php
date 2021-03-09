@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tavy315\SyliusRecommendationsPlugin\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Sylius\Bundle\CoreBundle\Doctrine\ORM\CustomerRepository as BaseCustomerRepository;
 
-class CustomerRepository extends ServiceEntityRepository implements CustomerRepositoryInterface
+class CustomerRepository extends BaseCustomerRepository implements CustomerRepositoryInterface
 {
     use CustomerRepositoryTrait;
 }
