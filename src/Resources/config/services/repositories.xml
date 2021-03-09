@@ -11,12 +11,18 @@
                  alias="tavy315_sylius_recommendations.repository.customer_recommendation" />
 
         <service id="tavy315_sylius_recommendations.repository.customer"
-                 class="Tavy315\SyliusRecommendationsPlugin\Repository\CustomerRepository"
-                 autowire="true" />
+                 class="Tavy315\SyliusRecommendationsPlugin\Repository\CustomerRepository" />
+
+        <service id="Tavy315\SyliusRecommendationsPlugin\Repository\CustomerRepositoryInterface"
+                 alias="tavy315_sylius_recommendations.repository.customer" />
 
         <service id="tavy315_sylius_recommendations.repository.product"
-                 class="Tavy315\SyliusRecommendationsPlugin\Repository\ProductRepository"
-                 autowire="true" />
+                 class="Tavy315\SyliusRecommendationsPlugin\Repository\ProductRepository">
+            <argument type="service" id="sylius.repository.product" />
+        </service>
+
+        <service id="Tavy315\SyliusRecommendationsPlugin\Repository\ProductRepositoryInterface"
+                 alias="tavy315_sylius_recommendations.repository.product" />
 
         <service id="tavy315_sylius_recommendations.repository.recommendation_group"
                  class="Tavy315\SyliusRecommendationsPlugin\Repository\RecommendationGroupRepository" />

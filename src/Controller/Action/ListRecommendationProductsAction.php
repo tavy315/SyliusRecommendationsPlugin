@@ -10,7 +10,7 @@ use Sylius\Component\Core\Context\ShopperContextInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Tavy315\SyliusRecommendationsPlugin\Context\CustomerRecommendationContextInterface;
-use Tavy315\SyliusRecommendationsPlugin\Repository\ProductRepository;
+use Tavy315\SyliusRecommendationsPlugin\Repository\ProductRepositoryInterface;
 use Tavy315\SyliusRecommendationsPlugin\RequestDataHandler\PaginationDataHandlerInterface;
 use Twig\Environment;
 
@@ -22,7 +22,7 @@ final class ListRecommendationProductsAction
     /** @var PaginationDataHandlerInterface */
     private $paginationDataHandler;
 
-    /** @var ProductRepository */
+    /** @var ProductRepositoryInterface */
     private $productRepository;
 
     /** @var ShopperContextInterface */
@@ -33,7 +33,7 @@ final class ListRecommendationProductsAction
 
     public function __construct(
         CustomerRecommendationContextInterface $recommendationContext,
-        ProductRepository $productRepository,
+        ProductRepositoryInterface $productRepository,
         Environment $twig,
         PaginationDataHandlerInterface $paginationDataHandler,
         ShopperContextInterface $shopperContext
