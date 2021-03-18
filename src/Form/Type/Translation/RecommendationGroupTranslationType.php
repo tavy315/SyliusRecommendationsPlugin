@@ -15,6 +15,14 @@ final class RecommendationGroupTranslationType extends AbstractResourceType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'tavy315_sylius_recommendations.ui.name',
+            ])
+            ->add('slug', TextType::class, [
+                'label' => 'tavy315_sylius_recommendations.ui.slug',
             ]);
+    }
+
+    public function getBlockPrefix(): string
+    {
+        return 'tavy315_sylius_recommendations_recommendation_group_translation';
     }
 }

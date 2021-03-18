@@ -32,6 +32,13 @@ services:
         tags:
             - { name: controller.service_arguments }
 
+    tavy315_sylius_recommendations.controller.recommendation_group_slug:
+        class: Tavy315\SyliusRecommendationsPlugin\Controller\RecommendationGroupSlugController
+        arguments:
+            - "@sylius.generator.slug"
+        tags:
+            - { name: controller.service_arguments }
+
     tavy315_sylius_recommendations.custom_factory.customer_recommendation:
         class: Tavy315\SyliusRecommendationsPlugin\Factory\CustomerRecommendationFactory
         decorates: tavy315_sylius_recommendations.factory.customer_recommendation
@@ -41,3 +48,18 @@ services:
 
     tavy315_sylius_recommendations.request_data_handler.pagination:
         class: Tavy315\SyliusRecommendationsPlugin\RequestDataHandler\PaginationDataHandler
+
+sylius_ui:
+    events:
+        tavy315_sylius_recommendations.admin.recommendation_group.create.javascripts:
+            blocks:
+                recommendation_group:
+                    template: '@Tavy315SyliusRecommendationsPlugin/Admin/RecommendationGroup/_javascripts.html.twig'
+                    context:
+                        postfix: create.javascripts
+        tavy315_sylius_recommendations.admin.recommendation_group.update.javascripts:
+            blocks:
+                recommendation_group:
+                    template: '@Tavy315SyliusRecommendationsPlugin/Admin/RecommendationGroup/_javascripts.html.twig'
+                    context:
+                        postfix: update.javascripts

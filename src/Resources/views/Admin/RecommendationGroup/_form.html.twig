@@ -1,4 +1,4 @@
-{% from "@SyliusAdmin/Macro/translationForm.html.twig" import translationForm %}
+{% from "@SyliusAdmin/Macro/translationForm.html.twig" import translationFormWithSlug %}
 
 <div class="ui two column stackable grid">
     <div class="column">
@@ -11,7 +11,7 @@
 <div class="ui one column stackable grid">
     <div class="column">
         <div class="field">
-            {{ translationForm(form.translations, resource) }}
+            {{ translationFormWithSlug(form.translations, '@Tavy315SyliusRecommendationsPlugin/Admin/RecommendationGroup/_slugField.html.twig', resource) }}
         </div>
     </div>
 </div>

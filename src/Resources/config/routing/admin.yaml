@@ -75,3 +75,10 @@ tavy315_sylius_recommendations_admin_customer_customer_recommendation:
                 templates:
                     breadcrumb: '@Tavy315SyliusRecommendationsPlugin/Admin/Customer/CustomerRecommendation/_breadcrumb.html.twig'
                     header_title: '@Tavy315SyliusRecommendationsPlugin/Admin/Customer/CustomerRecommendation/_headerTitle.html.twig'
+
+tavy315_sylius_recommendations_admin_ajax_generate_recommendation_group_slug:
+    path: /ajax/recommendation-groups/generate-slug
+    methods: [GET]
+    defaults:
+        _controller: tavy315_sylius_recommendations.controller.recommendation_group_slug:generateAction
+        _format: json

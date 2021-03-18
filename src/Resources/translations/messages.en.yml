@@ -14,4 +14,5 @@ tavy315_sylius_recommendations:
         select_customer: Select customer
         select_recommendation_group: Select recommendation group
         show_recommendations: Show recommendations
+        slug: Slug
         your_recommendation_is_empty: Your recommendation is empty
