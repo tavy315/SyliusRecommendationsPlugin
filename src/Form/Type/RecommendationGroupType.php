@@ -21,4 +21,9 @@ final class RecommendationGroupType extends AbstractResourceType
             ])
             ->addEventSubscriber(new AddCodeFormSubscriber());
     }
+
+    public function getBlockPrefix(): string
+    {
+        return 'tavy315_sylius_recommendations_recommendation_group';
+    }
 }
