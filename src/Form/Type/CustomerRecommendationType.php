@@ -57,6 +57,6 @@ final class CustomerRecommendationType extends AbstractResourceType
 
     public function getBlockPrefix(): string
     {
-        return 'tavy315_sylius_customer_recommendations_plugin_customer_recommendation';
+        return 'tavy315_sylius_recommendations_customer_recommendation';
     }
 }
