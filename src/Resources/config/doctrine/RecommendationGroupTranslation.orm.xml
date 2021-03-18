@@ -8,7 +8,6 @@
         </id>
         <field name="name" type="string" />
         <field name="slug" column="slug" type="string" unique="false" />
-        <field name="description" column="description" type="text" nullable="true" />
         <unique-constraints>
             <unique-constraint columns="locale,slug" name="slug_uidx" />
         </unique-constraints>
