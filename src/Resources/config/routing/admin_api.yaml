@@ -1,4 +1,4 @@
-tavy315_sylius_recommendations_admin_api_custome_recommendation:
+tavy315_sylius_recommendations_admin_api_customer_recommendation:
     resource: |
         alias: tavy315_sylius_recommendations.customer_recommendation
         criteria:
@@ -34,3 +34,15 @@ tavy315_sylius_recommendations_admin_api_customer_recommendation_update:
             repository:
                 method: findOneByCustomerAndRecommendationGroup
                 arguments: [ $customer, $recommendationGroup ]
+
+tavy315_sylius_recommendations_admin_api_recommendation_group:
+    resource: |
+        alias: tavy315_sylius_recommendations.recommendation_group
+        form: Tavy315\SyliusRecommendationsPlugin\Form\Type\RecommendationGroupType
+        grid: tavy315_sylius_recommendations_admin_recommendation_group
+        identifier: code
+        section: admin_api
+        serialization_version: $version
+        criteria:
+            code: $code
+    type: sylius.resource_api

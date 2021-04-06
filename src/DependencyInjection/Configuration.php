@@ -7,6 +7,7 @@ namespace Tavy315\SyliusRecommendationsPlugin\DependencyInjection;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Sylius\Component\Resource\Factory\Factory;
+use Sylius\Component\Resource\Factory\TranslatableFactory;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Tavy315\SyliusRecommendationsPlugin\Entity\CustomerRecommendation;
@@ -62,7 +63,7 @@ final class Configuration implements ConfigurationInterface
                                     ->addDefaultsIfNotSet()
                                     ->children()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('factory')->defaultValue(Factory::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('factory')->defaultValue(TranslatableFactory::class)->cannotBeEmpty()->end()
                                         ->scalarNode('form')->defaultValue(RecommendationGroupType::class)->cannotBeEmpty()->end()
                                         ->scalarNode('interface')->defaultValue(RecommendationGroupInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('model')->defaultValue(RecommendationGroup::class)->cannotBeEmpty()->end()
@@ -75,6 +76,7 @@ final class Configuration implements ConfigurationInterface
                                         ->arrayNode('classes')
                                             ->addDefaultsIfNotSet()
                                             ->children()
+                                                ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                                 ->scalarNode('form')->defaultValue(RecommendationGroupTranslationType::class)->cannotBeEmpty()->end()
                                                 ->scalarNode('interface')->defaultValue(RecommendationGroupTranslationInterface::class)->cannotBeEmpty()->end()
                                                 ->scalarNode('model')->defaultValue(RecommendationGroupTranslation::class)->cannotBeEmpty()->end()

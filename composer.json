@@ -4,7 +4,7 @@
     "description": "Recommendations plugin for Sylius.",
     "license": "MIT",
     "require": {
-        "php": "^7.3",
+        "php": ">=7.4",
         "pagerfanta/doctrine-orm-adapter": "^2.7",
         "sylius/sylius": "^1.8"
     },
@@ -15,7 +15,7 @@
         "phpstan/phpstan-webmozart-assert": "^0.12",
         "sensiolabs/security-checker": "^6.0",
         "sylius-labs/coding-standard": "^3.2",
-        "vimeo/psalm": "^4.6"
+        "vimeo/psalm": "^4.7"
     },
     "autoload": {
         "psr-4": {
