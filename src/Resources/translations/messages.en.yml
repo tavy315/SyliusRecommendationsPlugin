@@ -1,4 +1,7 @@
 tavy315_sylius_recommendations:
+    form:
+        recommendation_group:
+            position: Position
     ui:
         code: Code
         customer_recommendation: Customer recommendation
