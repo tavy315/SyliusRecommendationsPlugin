@@ -11,6 +11,10 @@ Tavy315\SyliusRecommendationsPlugin\Entity\RecommendationGroup:
             expose: true
             type: string
             groups: [Default, Detailed, Autocomplete]
+        calculationType:
+            expose: true
+            type: string
+            groups: [Default, Detailed]
         position:
             expose: true
             type: integer

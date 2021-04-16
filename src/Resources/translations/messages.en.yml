@@ -1,6 +1,7 @@
 tavy315_sylius_recommendations:
     form:
         recommendation_group:
+            calculation_type: Calculation type
             position: Position
     ui:
         code: Code

@@ -8,6 +8,7 @@
             <generator strategy="AUTO" />
         </id>
         <field name="code" column="code" type="string" unique="true" />
+        <field name="calculationType" column="calculation_type" nullable="true" type="string" unique="false" />
         <field name="position" type="integer">
             <gedmo:sortable-position />
         </field>

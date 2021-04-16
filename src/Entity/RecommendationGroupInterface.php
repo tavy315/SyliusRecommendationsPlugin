@@ -17,6 +17,10 @@ interface RecommendationGroupInterface extends CodeAwareInterface, TranslatableI
 
     public function setName(?string $name): void;
 
+    public function getCalculationType(): ?string;
+
+    public function setCalculationType(?string $calculationType): void;
+
     public function getDescription(): ?string;
 
     public function setDescription(?string $description): void;

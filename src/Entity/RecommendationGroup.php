@@ -10,17 +10,20 @@ use Sylius\Component\Resource\Model\TranslationInterface;
 
 class RecommendationGroup implements RecommendationGroupInterface
 {
+    use ToggleableTrait;
     use TranslatableTrait {
         __construct as protected initializeTranslationsCollection;
         getTranslation as private doGetTranslation;
     }
-    use ToggleableTrait;
 
     /** @var int */
     protected $id;
 
     /** @var string|null */
     protected $code;
+
+    /** @var string|null */
+    protected $calculationType;
 
     /** @var int|null */
     protected $position;
@@ -58,6 +61,16 @@ class RecommendationGroup implements RecommendationGroupInterface
     public function setCode(?string $code): void
     {
         $this->code = $code;
+    }
+
+    public function getCalculationType(): ?string
+    {
+        return $this->calculationType;
+    }
+
+    public function setCalculationType(?string $calculationType): void
+    {
+        $this->calculationType = $calculationType;
     }
 
     public function getSlug(): ?string
