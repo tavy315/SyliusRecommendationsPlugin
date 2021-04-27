@@ -15,8 +15,9 @@
                 <value>customer</value>
                 <value>recommendationGroup</value>
             </option>
-            <option name="errorPath">customer</option>
+            <option name="errorPath">recommendationGroup</option>
             <option name="groups">tavy315_sylius_recommendations</option>
+            <option name="message">Recommendation group already exists for this customer.</option>
         </constraint>
     </class>
 </constraint-mapping>
