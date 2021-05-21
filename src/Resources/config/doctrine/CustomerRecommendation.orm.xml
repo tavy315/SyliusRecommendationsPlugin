@@ -10,7 +10,7 @@
             <unique-constraint columns="customer_id,recommendation_group_id" name="customer_recommendation_group_idx" />
         </unique-constraints>
         <many-to-one field="customer" target-entity="Sylius\Component\Customer\Model\CustomerInterface">
-            <join-column name="customer_id" referenced-column-name="id" nullable="false" />
+            <join-column name="customer_id" referenced-column-name="id" nullable="false" on-delete="CASCADE" />
             <cascade>
                 <cascade-persist />
             </cascade>
