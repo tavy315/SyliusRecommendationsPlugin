@@ -10,8 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RecommendationGroupSlugController
 {
-    /** @var SlugGeneratorInterface */
-    private $slugGenerator;
+    private SlugGeneratorInterface $slugGenerator;
 
     public function __construct(SlugGeneratorInterface $slugGenerator)
     {

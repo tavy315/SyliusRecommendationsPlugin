@@ -5,7 +5,7 @@ tavy315_sylius_recommendations_admin_customer_recommendation_index:
         permission: true
         redirect: update
         section: admin
-        templates: SyliusAdminBundle:Crud
+        templates: "@SyliusAdmin/Crud"
         vars:
             all:
                 templates:
@@ -22,7 +22,7 @@ tavy315_sylius_recommendations_admin_recommendation_groups:
         permission: true
         redirect: update
         section: admin
-        templates: SyliusAdminBundle:Crud
+        templates: "@SyliusAdmin/Crud"
         vars:
             all:
                 templates:
@@ -37,7 +37,7 @@ tavy315_sylius_recommendations_admin_ajax_customer_by_phrase:
     methods: [GET]
     defaults:
         _format: json
-        _controller: sylius.controller.customer:indexAction
+        _controller: sylius.controller.customer::indexAction
         _sylius:
             permission: true
             repository:
@@ -51,7 +51,7 @@ tavy315_sylius_recommendations_admin_ajax_customer_by_email:
     methods: [GET]
     defaults:
         _format: json
-        _controller: sylius.controller.customer:indexAction
+        _controller: sylius.controller.customer::indexAction
         _sylius:
             permission: true
             repository:
@@ -62,7 +62,7 @@ tavy315_sylius_recommendations_admin_customer_customer_recommendation:
     path: /customers/{id}/recommendations
     methods: [GET]
     defaults:
-        _controller: tavy315_sylius_recommendations.controller.customer_recommendation:indexAction
+        _controller: tavy315_sylius_recommendations.controller.customer_recommendation::indexAction
         _sylius:
             section: admin
             permission: true
@@ -80,5 +80,5 @@ tavy315_sylius_recommendations_admin_ajax_generate_recommendation_group_slug:
     path: /ajax/recommendation-groups/generate-slug
     methods: [GET]
     defaults:
-        _controller: tavy315_sylius_recommendations.controller.recommendation_group_slug:generateAction
+        _controller: tavy315_sylius_recommendations.controller.recommendation_group_slug::generateAction
         _format: json

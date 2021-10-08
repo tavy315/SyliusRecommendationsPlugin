@@ -11,11 +11,9 @@ use Twig\Environment;
 
 final class ListRecommendationGroupsAction
 {
-    /** @var CustomerRecommendationContextInterface */
-    private $customerRecommendationContext;
+    private CustomerRecommendationContextInterface $customerRecommendationContext;
 
-    /** @var Environment */
-    private $twig;
+    private Environment $twig;
 
     public function __construct(CustomerRecommendationContextInterface $recommendationContext, Environment $twig)
     {

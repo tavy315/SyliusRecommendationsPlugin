@@ -16,20 +16,15 @@ use Twig\Environment;
 
 final class ListRecommendationProductsAction
 {
-    /** @var CustomerRecommendationContextInterface */
-    private $customerRecommendationContext;
+    private CustomerRecommendationContextInterface $customerRecommendationContext;
 
-    /** @var PaginationDataHandlerInterface */
-    private $paginationDataHandler;
+    private PaginationDataHandlerInterface $paginationDataHandler;
 
-    /** @var ProductRepositoryInterface */
-    private $productRepository;
+    private ProductRepositoryInterface $productRepository;
 
-    /** @var ShopperContextInterface */
-    private $shopperContext;
+    private ShopperContextInterface $shopperContext;
 
-    /** @var Environment */
-    private $twig;
+    private Environment $twig;
 
     public function __construct(
         CustomerRecommendationContextInterface $recommendationContext,

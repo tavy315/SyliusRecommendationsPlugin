@@ -24,20 +24,5 @@ final class Tavy315SyliusRecommendationsExtension extends AbstractResourceExtens
 
     public function prepend(ContainerBuilder $container): void
     {
-        if (!$container->hasExtension('doctrine_migrations') || !$container->hasExtension('sylius_labs_doctrine_migrations_extra')) {
-            return;
-        }
-
-        $container->prependExtensionConfig('doctrine_migrations', [
-            'migrations_paths' => [
-                'Tavy315\SyliusRecommendationsPlugin\Migrations' => '@Tavy315SyliusRecommendationsPlugin/Migrations',
-            ],
-        ]);
-
-        $container->prependExtensionConfig('sylius_labs_doctrine_migrations_extra', [
-            'migrations' => [
-                'Tavy315\SyliusRecommendationsPlugin\Migrations' => [ 'Sylius\Bundle\CoreBundle\Migrations' ],
-            ],
-        ]);
     }
 }
