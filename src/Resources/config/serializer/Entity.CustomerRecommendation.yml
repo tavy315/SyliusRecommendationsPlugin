@@ -1,0 +1,21 @@
+Tavy315\SyliusRecommendationsPlugin\Entity\CustomerRecommendation:
+    exclusion_policy: ALL
+    xml_root_name: customer_recommendation
+    properties:
+        id:
+            expose: true
+            type: integer
+            xml_attribute: true
+            groups: [Default, Detailed, Autocomplete]
+        customer:
+            expose: true
+            type: integer
+            groups: [Default, Detailed]
+        recommendationGroup:
+            expose: true
+            type: integer
+            groups: [Default, Detailed]
+        products:
+            expose: true
+            type: array
+            groups: [Default, Detailed]
