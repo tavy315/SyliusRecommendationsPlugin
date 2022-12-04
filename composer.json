@@ -6,7 +6,7 @@
     "require": {
         "php": ">=7.4",
         "pagerfanta/doctrine-orm-adapter": "^2.7",
-        "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0"
+        "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0 || ~1.11.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12",
