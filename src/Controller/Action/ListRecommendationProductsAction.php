@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavy315\SyliusRecommendationsPlugin\Controller\Action;
 
-use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Doctrine\ORM\QueryAdapter;
 use Pagerfanta\Pagerfanta;
 use Sylius\Component\Core\Context\ShopperContextInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,28 +16,13 @@ use Twig\Environment;
 
 final class ListRecommendationProductsAction
 {
-    private CustomerRecommendationContextInterface $customerRecommendationContext;
-
-    private PaginationDataHandlerInterface $paginationDataHandler;
-
-    private ProductRepositoryInterface $productRepository;
-
-    private ShopperContextInterface $shopperContext;
-
-    private Environment $twig;
-
     public function __construct(
-        CustomerRecommendationContextInterface $recommendationContext,
-        ProductRepositoryInterface $productRepository,
-        Environment $twig,
-        PaginationDataHandlerInterface $paginationDataHandler,
-        ShopperContextInterface $shopperContext
+        private CustomerRecommendationContextInterface $customerRecommendationContext,
+        private ProductRepositoryInterface $productRepository,
+        private Environment $twig,
+        private PaginationDataHandlerInterface $paginationDataHandler,
+        private ShopperContextInterface $shopperContext
     ) {
-        $this->customerRecommendationContext = $recommendationContext;
-        $this->paginationDataHandler = $paginationDataHandler;
-        $this->productRepository = $productRepository;
-        $this->shopperContext = $shopperContext;
-        $this->twig = $twig;
     }
 
     public function __invoke(Request $request): Response
@@ -51,7 +36,7 @@ final class ListRecommendationProductsAction
             $customerRecommendation->getProducts()
         );
 
-        $results = new Pagerfanta(new DoctrineORMAdapter($queryBuilder, false, false));
+        $results = new Pagerfanta(new QueryAdapter($queryBuilder, false, false));
         $results->setCurrentPage($paginationData[PaginationDataHandlerInterface::PAGE_INDEX]);
         $results->setMaxPerPage($paginationData[PaginationDataHandlerInterface::LIMIT_INDEX]);
 
