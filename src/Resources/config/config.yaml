@@ -1,6 +1,5 @@
 imports:
     - { resource: "@Tavy315SyliusRecommendationsPlugin/Resources/config/app/grids.yaml" }
-    - { resource: "@Tavy315SyliusRecommendationsPlugin/Resources/config/app/jms_serializer.yaml" }
 
 services:
     tavy315_sylius_recommendations.context.customer_recommendation:

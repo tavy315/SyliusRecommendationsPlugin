@@ -1,6 +1,0 @@
-jms_serializer:
-    metadata:
-        directories:
-            tavy315-recommendations:
-                namespace_prefix: "Tavy315\\SyliusRecommendationsPlugin"
-                path: "@Tavy315SyliusRecommendationsPlugin/Resources/config/serializer"
