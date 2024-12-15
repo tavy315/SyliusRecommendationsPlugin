@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": ">=8.0",
-        "babdev/pagerfanta-bundle": "^4.5",
+        "babdev/pagerfanta-bundle": "^3.8 || ^4.5",
         "sylius/channel": "^1.11",
         "sylius/core": "^1.11",
         "sylius/core-bundle": "^1.11",
